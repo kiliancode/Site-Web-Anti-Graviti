@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="L'Éphémère - Bistro Gastronomique d'exception à Paris. Cuisine d'auteur de saison par le Chef Julien Vaneau. Réservez votre table en ligne.">
+  <title>L'Éphémère | Bistro Gastronomique</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="site-header" id="header">
+    <div class="header-container">
+      <a href="#hero" class="logo">
+        <span class="logo-sub">BISTRO GASTRONOMIQUE</span>
+        <span class="logo-main">L'Éphémère</span>
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+        <ul class="nav-list">
+          <li><a href="#hero" class="nav-link active">Accueil</a></li>
+          <li><a href="#about" class="nav-link">Notre Maison</a></li>
+          <li><a href="#menu" class="nav-link">La Carte</a></li>
+          <li><a href="#experience" class="nav-link">L'Expérience</a></li>
+          <li><a href="#avis" class="nav-link">Avis</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <button class="btn btn-primary btn-nav open-reservation" id="navReserveBtn">
+          <span>Réserver une table</span>
+        </button>
+      </nav>
+
+      <button class="burger-btn" id="burgerBtn" aria-label="Ouvrir le menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="badge-tag">
+          <span class="star-icon">✦</span> Guide Michelin 2026 — Sélection Spéciale
+        </div>
+        <h1 class="hero-title">Une cuisine d'auteur sublimant la terre et les saisons</h1>
+        <p class="hero-subtitle">
+          Niché au cœur du 9ᵉ arrondissement, le Chef Julien Vaneau célèbre l’émotion culinaire à travers des produits d'exception issus de terroirs durables et engagés.
+        </p>
+        <div class="hero-actions">
+          <button class="btn btn-primary btn-lg open-reservation">
+            <span>Réserver votre table</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+          <a href="#menu" class="btn btn-outline btn-lg">
+            <span>Découvrir la carte</span>
+          </a>
+        </div>
+        <div class="hero-metrics">
+          <div class="metric-item">
+            <span class="metric-val">100%</span>
+            <span class="metric-lbl">Produits frais de saison</span>
+          </div>
+          <div class="metric-separator"></div>
+          <div class="metric-item">
+            <span class="metric-val">34</span>
+            <span class="metric-lbl">Producteurs régionaux partenaires</span>
+          </div>
+          <div class="metric-separator"></div>
+          <div class="metric-item">
+            <span class="metric-val">4.9/5</span>
+            <span class="metric-lbl">+680 convives enchantés</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about section-padding" id="about">
+      <div class="container grid-2">
+        <div class="about-images">
+          <div class="image-card img-main">
+            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80" alt="Salle de restaurant chaleureuse et élégante">
+          </div>
+          <div class="image-card img-accent">
+            <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=600&q=80" alt="Chef Julien Vaneau en cuisine">
+            <div class="experience-badge">
+              <span class="badge-years">15 ans</span>
+              <span class="badge-text">D'héritage & de passion</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-text">
+          <span class="section-tag">Notre Philosophie</span>
+          <h2 class="section-title">L'authenticité réinventée avec finesse & audace</h2>
+          <p class="lead-text">
+            « Cuisiner, c'est capturer un instant d'émotion et l'offrir en partage. Chaque plat raconte le geste d'un maraîcher, d'un pêcheur et le souffle de la saison. »
+          </p>
+          <p class="body-text">
+            Fondé en 2021 par le Chef Julien Vaneau après ses passages dans de grandes tables étoilées parisiennes et tokyoïtes, <strong>L'Éphémère</strong> marie la rigueur de la haute gastronomie française à la spontanéité d'un bistrot de quartier convivial.
+          </p>
+          <div class="values-list">
+            <div class="value-item">
+              <div class="value-icon">🌱</div>
+              <div>
+                <h4>Circuits ultra-courts</h4>
+                <p>90% de nos maraîchers et éleveurs se situent à moins de 150 km de Paris.</p>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-icon">🍷</div>
+              <div>
+                <h4>Cave biodynamique</h4>
+                <p>Plus de 180 références de vignerons indépendants, naturels et engagés.</p>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-icon">✨</div>
+              <div>
+                <h4>Carte renouvelée chaque mois</h4>
+                <p>Pour suivre fidèlement le rythme de la nature et vous surprendre à chaque visite.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu-section section-padding" id="menu">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">Créations Gourmandes</span>
+          <h2 class="section-title">La Carte des Saisons</h2>
+          <p class="section-desc">
+            Une symphonie de saveurs équilibrées, préparée à la commande chaque midi et chaque soir.
+          </p>
+          
+          <!-- Category Tabs -->
+          <div class="menu-tabs" role="tablist">
+            <button class="tab-btn active" data-category="entrees" role="tab" aria-selected="true">Entrées</button>
+            <button class="tab-btn" data-category="plats" role="tab" aria-selected="false">Plats Signatures</button>
+            <button class="tab-btn" data-category="desserts" role="tab" aria-selected="false">Desserts</button>
+            <button class="tab-btn" data-category="vins" role="tab" aria-selected="false">Vins & Cocktails</button>
+          </div>
+        </div>
+
+        <!-- Menu Grid -->
+        <div class="menu-grid" id="menuItemsContainer">
+          <!-- Dynamically populated or static items with filters -->
+          
+          <!-- Entrées -->
+          <article class="menu-card" data-category="entrees">
+            <div class="menu-card-img">
+              <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=600&q=80" alt="Carpaccio de Saint-Jacques">
+              <span class="diet-tag signature">Signature</span>
+            </div>
+            <div class="menu-card-body">
+              <div class="menu-card-header">
+                <h3 class="menu-item-title">Noix de Saint-Jacques de la Baie</h3>
+                <span class="menu-item-price">24 €</span>
+              </div>
+              <p class="menu-item-desc">
+                Fines lamelles marinées aux agrumes de Menton, émulsion d'eau de mer iodée, huile d'aneth sauvage et caviar de citron.
+              </p>
+              <div class="menu-item-footer">
+                <span class="pairing">Accord : Chablis 1er Cru 2022</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="menu-card" data-category="entrees">
+            <div class="menu-card-img">
+              <img src="https://images.unsplash.com/photo-1608897013039-887f21d8c804?auto=format&fit=crop&w=600&q=80" alt="Velouté de potimarron">
+              <span class="diet-tag veg">Végétarien</span>
+            </div>
+            <div class="menu-card-body">
+              <div class="menu-card-header">
+                <h3 class="menu-item-title">Velouté de Butternut Fumé</h3>
+                <span class="menu-item-price">18 €</span>
+              </div>
+              <p class="menu-item-desc">
+                Cœur coulant d’œuf parfait fermier à 64°C, éclats de noisettes torréfiées du Piémont et émulsion de truffe noire du Périgord.
+              </p>
+              <div class="menu-item-footer">
+                <span class="pairing">Accord : Pouilly-Fuissé 2021</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="menu-card" data-category="entrees">
+            <div class="menu-card-img">
+              <img src="https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=600&q=80" alt="Tartare de veau">
+              <span class="diet-tag gluten-free">Sans Gluten</span>
+            </div>
+            <div class="menu-card-body">
+              <div class="menu-card-header">
+                <h3 class="menu-item-title">Tartare de Veau Fermier</h3>
+                <span class="menu-item-price">21 €</span>
+              </div>
+              <p class="menu-item-desc">
+                Coupé au couteau, condiment huître spéciale Gillardeau, pousses de mouron des oiseaux et tuile croustillante de sarrasin.
+              </p>
+              <div class="menu-item-footer">
+                <span class="pairing">Accord : Côte-Rôtie 2020</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Plats -->
+          <article class="menu-card" data-category="plats">
+            <div class="menu-card-img">
+              <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80" alt="Filet de canette rôtie">
+              <span class="diet-tag signature">Signature</span>
+            </div>
+            <div class="menu-card-body">
+              <div class="menu-card-header">
+                <h3 class="menu-item-title">Canette de Challans Rôtie</h3>
+                <span class="menu-item-price">36 €</span>
+              </div>
+              <p class="menu-item-desc">
+                Magret cuit sur le coffre, mousseline de céleri rave vanillée, jus réduit aux mûres sauvages et poivre de Timut.
+              </p>
+              <div class="menu-item-footer">
+                <span class="pairing">Accord : Saint-Joseph Rouge 2019</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="menu-card" data-category="plats">
+            <div class="menu-card-img">
+              <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=600&q=80" alt="Lotte rôtie">
+              <span class="diet-tag gluten-free">Pêche Durable</span>
+            </div>
+            <div class="menu-card-body">
+              <div class="menu-card-header">
+                <h3 class="menu-item-title">Lotte Rôtie au Beurre Moussant</h3>
+                <span class="menu-item-price">39 €</span>
+              </div>
+              <p class="menu-item-desc">
+                Délicate déclinaison de poireaux crayons braisés au saké, sabayon au vin jaune du Jura et herbes fraîches du potager.
+              </p>
+              <div class="menu-item-footer">
+                <span class="pairing">Accord : Meursault 2021</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="menu-card" data-category="plats">
+            <div class="menu-card-img">
+              <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=80" alt="Gnocchis à la truffe">
+              <span class="diet-tag veg">Végétarien</span>
+            </div>
+            <div class="menu-card-body">
+              <div class="menu-card-header">
+                <h3 class="menu-item-title">Gnocchis de Pomme de Terre Dorés</h3>
+                <span class="menu-item-price">29 €</span>
+              </div>
+              <p class="menu-item-desc">
+                Farcis à la ricotta fumée artisanale, fricassée de cèpes et girolles au thym citronné, émulsion de parmesan affiné 36 mois.
+              </p>
+              <div class="menu-item-footer">
+                <span class="pairing">Accord : Crozes-Hermitage Blanc 2022</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Desserts -->
+          <article class="menu-card" data-category="desserts">
+            <div class="menu-card-img">
+              <img src="https://images.unsplash.com/photo-1579372786545-d24232daf58c?auto=format&fit=crop&w=600&q=80" alt="Soufflé au chocolat">
+              <span class="diet-tag signature">Signature</span>
+            </div>
+            <div class="menu-card-body">
+              <div class="menu-card-header">
+                <h3 class="menu-item-title">Soufflé Chaud Chocolat Grand Cru</h3>
+                <span class="menu-item-price">16 €</span>
+              </div>
+              <p class="menu-item-desc">
+                Cacao Guanaja 70%, glace minute à la cardamome verte et fleur de sel de Guérande.
+              </p>
+              <div class="menu-item-footer">
+                <span class="pairing">Accord : Rivesaltes Ambré Hors d'Âge</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="menu-card" data-category="desserts">
+            <div class="menu-card-img">
+              <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80" alt="Tartelette figues">
+              <span class="diet-tag">Saison</span>
+            </div>
+            <div class="menu-card-body">
+              <div class="menu-card-header">
+                <h3 class="menu-item-title">Déclinaison de Figues de Solliès</h3>
+                <span class="menu-item-price">15 €</span>
+              </div>
+              <p class="menu-item-desc">
+                Rôties au miel de châtaignier, crumble de sablé breton, ganache montée vanille de Madagascar et sorbet feuille de figuier.
+              </p>
+              <div class="menu-item-footer">
+                <span class="pairing">Accord : Muscat de Beaumes-de-Venise</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Vins & Cocktails -->
+          <article class="menu-card" data-category="vins">
+            <div class="menu-card-img">
+              <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=600&q=80" alt="Verre de vin">
+              <span class="diet-tag">Biologique</span>
+            </div>
+            <div class="menu-card-body">
+              <div class="menu-card-header">
+                <h3 class="menu-item-title">Sélection du Sommelier (3 Verres)</h3>
+                <span class="menu-item-price">38 €</span>
+              </div>
+              <p class="menu-item-desc">
+                Parcours oenologique sur mesure accordé à votre choix de plats, mettant à l'honneur des vignerons indépendants et respectueux de la terre.
+              </p>
+              <div class="menu-item-footer">
+                <span class="pairing">Comprend 1 blanc, 1 rouge et 1 vin doux</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="menu-card" data-category="vins">
+            <div class="menu-card-img">
+              <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80" alt="Cocktail signature">
+              <span class="diet-tag signature">Création</span>
+            </div>
+            <div class="menu-card-body">
+              <div class="menu-card-header">
+                <h3 class="menu-item-title">Cocktail « L'Élixir des Martyrs »</h3>
+                <span class="menu-item-price">17 €</span>
+              </div>
+              <p class="menu-item-desc">
+                Gin artisanal français infusé au romarin frais, liqueur de sureau, cordial de bergamote maison, champagne brut et fumée de thym.
+              </p>
+              <div class="menu-item-footer">
+                <span class="pairing">Parfait en apéritif d'accueil</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Menu Tasting Box -->
+        <div class="tasting-menu-card">
+          <div class="tasting-info">
+            <span class="gold-badge">Formule Privilège</span>
+            <h3>Menu Découverte en 6 Temps</h3>
+            <p>Une carte blanche laissée au Chef Julien Vaneau pour un voyage culinaire immersif et inattendu.</p>
+            <div class="tasting-details">
+              <span><strong>85 €</strong> par personne</span>
+              <span>•</span>
+              <span>Accord Mets & Vins : <strong>+45 €</strong></span>
+            </div>
+          </div>
+          <button class="btn btn-primary open-reservation" data-formula="menu-6-temps">
+            <span>Réserver ce menu</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience / Atmosphere Section -->
+    <section class="experience-section section-padding" id="experience">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">Une Atmosphère Unique</span>
+          <h2 class="section-title">L'Art de Vivre & de Recevoir</h2>
+          <p class="section-desc">
+            Entre matières nobles, lumières tamisées et service attentionné sans ostentation.
+          </p>
+        </div>
+
+        <div class="experience-grid">
+          <div class="exp-card">
+            <div class="exp-icon">🕯️</div>
+            <h3>La Grande Salle Boisée</h3>
+            <p>Banquettes de velours vert émeraude, chêne massif et éclairage doux pour des dîners intimes en tête-à-tête ou entre amis.</p>
+          </div>
+          <div class="exp-card">
+            <div class="exp-icon">🌿</div>
+            <h3>La Verrière Végétalisée</h3>
+            <p>Un écrin de lumière naturelle baigné d'arbres et de plantes aromatiques sous les toits de zinc parisiens.</p>
+          </div>
+          <div class="exp-card">
+            <div class="exp-icon">👨‍🍳</div>
+            <h3>La Table d'Hôtes du Chef</h3>
+            <p>Une vue imprenable sur le passe-plat et la brigade en pleine ébullition. Une expérience exclusive pour 4 à 8 convives.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials section-padding" id="avis">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">La Presse & Nos Convives</span>
+          <h2 class="section-title">Ce qu'ils disent de nous</h2>
+        </div>
+
+        <div class="reviews-slider">
+          <blockquote class="review-card">
+            <div class="stars">★★★★★</div>
+            <p class="quote">« Julien Vaneau réussit l'exploit de magnifier les saveurs brutes avec une technique d'orfèvre. Un bistrot où la poésie culinaire est omniprésente. »</p>
+            <div class="reviewer">
+              <span class="reviewer-name">Le Figaro Gastronomie</span>
+              <span class="reviewer-role">Guide des Nouvelles Tables</span>
+            </div>
+          </blockquote>
+
+          <blockquote class="review-card featured-review">
+            <div class="stars">★★★★★</div>
+            <p class="quote">« Une expérience rare. La lotte au vin jaune et le soufflé au chocolat sont déjà des classiques. Le service est prévenant, souriant et passionné. »</p>
+            <div class="reviewer">
+              <span class="reviewer-name">Camille & Antoine D.</span>
+              <span class="reviewer-role">Convives réguliers</span>
+            </div>
+          </blockquote>
+
+          <blockquote class="review-card">
+            <div class="stars">★★★★★</div>
+            <p class="quote">« L'accord mets et vins naturels proposé par la sommelière est d'une justesse renversante. Un des plus beaux coups de cœur parisiens de l'année. »</p>
+            <div class="reviewer">
+              <span class="reviewer-name">Gault & Millau 2025</span>
+              <span class="reviewer-role">Chronique Bistronomie</span>
+            </div>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact & Practical Info -->
+    <section class="contact-section section-padding" id="contact">
+      <div class="container grid-2">
+        <div class="contact-info">
+          <span class="section-tag">Venir Nous Voir</span>
+          <h2 class="section-title">Informations Pratiques</h2>
+          <p class="contact-lead">Nous avons hâte de vous accueillir pour un moment mémorable.</p>
+
+          <div class="info-blocks">
+            <div class="info-block">
+              <div class="info-icon">📍</div>
+              <div>
+                <h4>Adresse</h4>
+                <p>18 Rue des Martyrs, 75009 Paris<br><small>Métro : Saint-Georges (Ligne 12) ou Pigalle (Ligne 2)</small></p>
+              </div>
+            </div>
+
+            <div class="info-block">
+              <div class="info-icon">🕒</div>
+              <div>
+                <h4>Horaires d'Ouverture</h4>
+                <p>
+                  <strong>Mardi au Samedi :</strong><br>
+                  Déjeuner : 12h00 – 14h30<br>
+                  Dîner : 19h30 – 23h00<br>
+                  <small class="closed-notice">Fermé le Dimanche et le Lundi</small>
+                </p>
+              </div>
+            </div>
+
+            <div class="info-block">
+              <div class="info-icon">📞</div>
+              <div>
+                <h4>Réservations & Contact</h4>
+                <p>Téléphone : <a href="tel:+33142859012">+33 1 42 85 90 12</a><br>Email : <a href="mailto:contact@restaurant-ephemere.fr">contact@restaurant-ephemere.fr</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-card-box">
+          <div class="reservation-preview">
+            <h3>Une question ou une demande de privatisation ?</h3>
+            <p>Privatisation totale de la verrière ou de la grande salle disponible pour vos événements d'entreprise et repas de famille.</p>
+            <form id="quickContactForm" class="quick-form">
+              <div class="form-group">
+                <label for="contactName">Nom complet</label>
+                <input type="text" id="contactName" placeholder="Ex: Jean Dupont" required>
+              </div>
+              <div class="form-group">
+                <label for="contactEmail">Adresse email</label>
+                <input type="email" id="contactEmail" placeholder="jean@exemple.fr" required>
+              </div>
+              <div class="form-group">
+                <label for="contactMessage">Message</label>
+                <textarea id="contactMessage" rows="3" placeholder="Votre projet de privatisation ou question..." required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">
+                <span>Envoyer le message</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-col">
+        <span class="logo-main footer-logo">L'Éphémère</span>
+        <p>Bistro gastronomique durable et vivant. Une cuisine de mémoire et d'intuition.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#hero">Accueil</a></li>
+          <li><a href="#about">Notre Histoire</a></li>
+          <li><a href="#menu">La Carte</a></li>
+          <li><a href="#experience">L'Expérience</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Horaires</h4>
+        <p>Du Mardi au Samedi</p>
+        <p>Service midi & soir</p>
+        <p>18 Rue des Martyrs, Paris 9e</p>
+      </div>
+      <div class="footer-col">
+        <h4>Restez informé</h4>
+        <p>Recevez en avant-première nos nouvelles cartes saisonnières.</p>
+        <form id="newsletterForm" class="newsletter-form">
+          <input type="email" placeholder="Votre adresse email" required>
+          <button type="submit" aria-label="S'inscrire">➔</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 L'Éphémère Restaurant. Tous droits réservés. Projet fictif de démonstration.</p>
+    </div>
+  </footer>
+
+  <!-- Modal de Réservation Interactif -->
+  <dialog id="reservationModal" class="reservation-dialog">
+    <div class="dialog-content">
+      <button class="dialog-close" id="closeModalBtn" aria-label="Fermer la fenêtre">&times;</button>
+      
+      <div id="bookingStepForm">
+        <div class="dialog-header">
+          <span class="section-tag">Réservation Instantanée</span>
+          <h2>Réservez Votre Table</h2>
+          <p>Confirmation immédiate par email et SMS</p>
+        </div>
+
+        <form id="reservationForm" class="booking-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="reserveDate">Date du repas</label>
+              <input type="date" id="reserveDate" required>
+            </div>
+            <div class="form-group">
+              <label for="reserveService">Service</label>
+              <select id="reserveService" required>
+                <option value="midi">Déjeuner (12h00 - 14h00)</option>
+                <option value="soir" selected>Dîner (19h30 - 22h00)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="reserveTime">Heure d'arrivée</label>
+              <select id="reserveTime" required>
+                <!-- Dynamic options based on service -->
+                <option value="19:30">19:30</option>
+                <option value="20:00" selected>20:00</option>
+                <option value="20:30">20:30</option>
+                <option value="21:00">21:00</option>
+                <option value="21:30">21:30</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="reserveGuests">Nombre de convives</label>
+              <select id="reserveGuests" required>
+                <option value="1">1 personne</option>
+                <option value="2" selected>2 personnes</option>
+                <option value="3">3 personnes</option>
+                <option value="4">4 personnes</option>
+                <option value="5">5 personnes</option>
+                <option value="6">6 personnes</option>
+                <option value="7+">Table de groupe (7+)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="reserveLocation">Préférence d'ambiance</label>
+            <select id="reserveLocation">
+              <option value="salle">Salle Principale (Ambiance chaleureuse)</option>
+              <option value="verriere">Sous la Verrière (Vue ciel étoilé)</option>
+              <option value="chef">Table du Chef (Face aux cuisines)</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="guestName">Votre nom et prénom</label>
+              <input type="text" id="guestName" placeholder="Claire Martin" required>
+            </div>
+            <div class="form-group">
+              <label for="guestPhone">Téléphone</label>
+              <input type="tel" id="guestPhone" placeholder="06 12 34 56 78" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="guestEmail">Email de confirmation</label>
+            <input type="email" id="guestEmail" placeholder="claire.martin@exemple.fr" required>
+          </div>
+
+          <div class="form-group">
+            <label for="guestNotes">Régimes alimentaires, allergies ou occasion spéciale</label>
+            <textarea id="guestNotes" rows="2" placeholder="Ex: Anniversaire, intolérance au gluten, préférence au calme..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block btn-lg">
+            <span>Confirmer ma réservation</span>
+          </button>
+        </form>
+      </div>
+
+      <!-- Success Screen inside Dialog -->
+      <div id="bookingStepSuccess" class="booking-success hidden">
+        <div class="success-icon">✓</div>
+        <h2>Réservation Confirmée !</h2>
+        <p class="success-msg">
+          Merci <strong id="confirmGuestName"></strong>. Votre table pour <strong id="confirmGuests"></strong> personne(s) est réservée le <strong id="confirmDate"></strong> à <strong id="confirmTime"></strong>.
+        </p>
+        <div class="booking-summary-box">
+          <p><strong>Lieu :</strong> <span id="confirmLocation"></span></p>
+          <p><strong>Référence :</strong> <span id="confirmRef" class="code-ref">#EPH-8492</span></p>
+          <p class="small-text">Un e-mail récapitulatif vient d'être expédié à votre adresse. Pour toute modification, contactez le 01 42 85 90 12.</p>
+        </div>
+        <button class="btn btn-primary" id="btnFinishBooking">Fermer</button>
+      </div>
+
+    </div>
+  </dialog>
+
+  <!-- Notification Toast -->
+  <div id="toast" class="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

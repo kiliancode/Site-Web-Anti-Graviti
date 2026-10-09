@@ -1,7 +1,10 @@
+
 /**
  * L'Éphémère - Bistro Gastronomique
  * Scripts interactifs & gestion des réservations
  */
+
+const WEB3FORMS_ACCESS_KEY = "6abfa9ec-fdeb-4070-a1ae-65a397799b82";
 
 document.addEventListener('DOMContentLoaded', () => {
   initNavigation();
@@ -107,7 +110,7 @@ function initMenuTabs() {
 }
 
 /* --------------------------------------------------------------------------
-   3. RESERVATION DIALOG & LOGIC
+   3. RESERVATION DIALOG & LOGIC (AVEC ENVOI RÉEL VIA WEB3FORMS)
    -------------------------------------------------------------------------- */
 function initReservationModal() {
   const modal = document.getElementById('reservationModal');
@@ -181,30 +184,44 @@ function initReservationModal() {
   if (closeBtn) closeBtn.addEventListener('click', closeModal);
   if (finishBtn) finishBtn.addEventListener('click', closeModal);
 
-  // Close when clicking outside dialog backdrop
+  // Empêcher les clics à l'intérieur de la boîte (y compris selects et champs) de fermer le modal
+  const dialogContent = modal.querySelector('.dialog-content');
+  if (dialogContent) {
+    dialogContent.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
+  }
+
+  // Fermer UNIQUEMENT lors d'un vrai clic sur le fond sombre (backdrop)
   modal.addEventListener('click', (e) => {
-    const dialogDimensions = modal.getBoundingClientRect();
-    if (
-      e.clientX < dialogDimensions.left ||
-      e.clientX > dialogDimensions.right ||
-      e.clientY < dialogDimensions.top ||
-      e.clientY > dialogDimensions.bottom
-    ) {
+    if (e.target.closest && (e.target.closest('.dialog-content') || e.target.closest('select'))) {
+      return;
+    }
+    if (e.target.tagName === 'SELECT' || e.target.tagName === 'OPTION') {
+      return;
+    }
+    if (e.target === modal) {
       closeModal();
     }
   });
 
   // Form submission handler
   if (form) {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn ? submitBtn.innerHTML : '';
+
       const guestName = document.getElementById('guestName').value;
+      const guestPhone = document.getElementById('guestPhone').value;
+      const guestEmail = document.getElementById('guestEmail').value;
       const guests = document.getElementById('reserveGuests').value;
       const date = document.getElementById('reserveDate').value;
       const time = document.getElementById('reserveTime').value;
       const locationSelect = document.getElementById('reserveLocation');
-      const locationName = locationSelect.options[locationSelect.selectedIndex].text.split('(')[0].trim();
+      const locationName = locationSelect ? locationSelect.options[locationSelect.selectedIndex].text.split('(')[0].trim() : 'Salle Principale';
+      const guestNotes = document.getElementById('guestNotes') ? document.getElementById('guestNotes').value : '';
 
       // Format date in French format
       const formattedDate = new Date(date).toLocaleDateString('fr-FR', {
@@ -217,38 +234,125 @@ function initReservationModal() {
       // Generate random reservation code
       const randomCode = '#EPH-' + Math.floor(1000 + Math.random() * 9000);
 
-      // Populate success message
-      document.getElementById('confirmGuestName').textContent = guestName;
-      document.getElementById('confirmGuests').textContent = guests;
-      document.getElementById('confirmDate').textContent = formattedDate;
-      document.getElementById('confirmTime').textContent = time;
-      document.getElementById('confirmLocation').textContent = locationName;
-      document.getElementById('confirmRef').textContent = randomCode;
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span>Transmission en cours...</span>';
+      }
 
-      // Switch views
-      formStep.classList.add('hidden');
-      successStep.classList.remove('hidden');
-      form.reset();
+      try {
+        // Envoi réel à Web3Forms
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            access_key: WEB3FORMS_ACCESS_KEY,
+            subject: `[Réservation Restaurant] ${guestName} - ${guests} pers. (${formattedDate} à ${time})`,
+            from_name: "L'Éphémère - Réservations",
+            "Nom du convive": guestName,
+            "Téléphone": guestPhone,
+            "Email du client": guestEmail,
+            "Nombre de convives": guests,
+            "Date du repas": formattedDate,
+            "Heure d'arrivée": time,
+            "Ambiance souhaitée": locationName,
+            "Remarques / Allergies": guestNotes || "Aucune",
+            "Référence de réservation": randomCode
+          })
+        });
 
-      // Trigger toast
-      showToast(`Réservation enregistrée pour ${guestName} !`);
+        const result = await response.json();
+
+        if (result.success) {
+          // Populate success message
+          document.getElementById('confirmGuestName').textContent = guestName;
+          document.getElementById('confirmGuests').textContent = guests;
+          document.getElementById('confirmDate').textContent = formattedDate;
+          document.getElementById('confirmTime').textContent = time;
+          document.getElementById('confirmLocation').textContent = locationName;
+          document.getElementById('confirmRef').textContent = randomCode;
+
+          // Switch views
+          formStep.classList.add('hidden');
+          successStep.classList.remove('hidden');
+          form.reset();
+
+          showToast(`Réservation confirmée et envoyée au restaurant pour ${guestName} !`);
+        } else {
+          showToast("Erreur lors de la réservation. Veuillez réessayer.");
+        }
+      } catch (err) {
+        console.error("Erreur Web3Forms:", err);
+        showToast("Impossible de contacter le service de réservation.");
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnText;
+        }
+      }
     });
   }
 }
 
 /* --------------------------------------------------------------------------
-   4. CONTACT & NEWSLETTER FORMS
+   4. CONTACT & NEWSLETTER FORMS (AVEC ENVOI RÉEL VIA WEB3FORMS)
    -------------------------------------------------------------------------- */
 function initQuickForms() {
   const contactForm = document.getElementById('quickContactForm');
   const newsletterForm = document.getElementById('newsletterForm');
 
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
+
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      const originalText = submitBtn ? submitBtn.innerHTML : '';
+
       const name = document.getElementById('contactName').value;
-      contactForm.reset();
-      showToast(`Merci ${name}, votre message a bien été envoyé à notre équipe.`);
+      const email = document.getElementById('contactEmail').value;
+      const message = document.getElementById('contactMessage').value;
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span>Envoi en cours...</span>';
+      }
+
+      try {
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            access_key: WEB3FORMS_ACCESS_KEY,
+            subject: `[Message Contact / Privatisation] De ${name}`,
+            from_name: "L'Éphémère - Contact",
+            "Nom complet": name,
+            "Email": email,
+            "Message": message
+          })
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          contactForm.reset();
+          showToast(`Merci ${name}, votre message a bien été transmis au restaurant.`);
+        } else {
+          showToast("Une erreur est survenue lors de l'envoi du message.");
+        }
+      } catch (err) {
+        console.error("Erreur Contact:", err);
+        showToast("Impossible d'envoyer le message pour le moment.");
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalText;
+        }
+      }
     });
   }
 
@@ -273,6 +377,5 @@ function showToast(message) {
 
   setTimeout(() => {
     toast.classList.remove('show');
-  }, 4000);
+  }, 4500);
 }
-
